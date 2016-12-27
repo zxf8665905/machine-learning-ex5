@@ -17,21 +17,12 @@ grad = zeros(size(theta));
 %               regression for a particular choice of theta.
 %
 %               You should set J to the cost and grad to the gradient.
-%
-
-
-
-
-
-
-
-
-
-
-
-
+H=X*theta;
+J=1/(2*m)*((H-y)'*(H-y))+lambda/(2*m)*(theta(2:end)'*theta(2:end));
+regularized=lambda/m*theta;
+regularized(1)=0;
+grad=1/m*((H-y)'*X)+regularized';
 % =========================================================================
-
 grad = grad(:);
 
 end
